@@ -11,7 +11,7 @@ import java.util.List;
 
 public class ItemsParser {
     private final static String ITEM_LIST_START = "{\"title\":\"lista ofert\"";
-    private final static String ITEM_LIST_END = "}}}]}";
+    private final static String ITEM_LIST_END = "window.__listing_ItemsStoreRawData";
 
     private final static String TITLE_START = "\"title\":{\"text\":\"";
     private final static String TITLE_END = "\",\"bold\":";
@@ -44,6 +44,9 @@ public class ItemsParser {
             if (page.contains(ITEM_LIST_START)) {
                 page = page.substring(page.indexOf(ITEM_LIST_START), page.indexOf(ITEM_LIST_END));
                 String itemsRaw[] = page.split("(?=\"title\")");
+//                for(int i = 0; i < itemsRaw.length; i++) {
+//                    System.out.println(itemsRaw[i]);
+//                }
 
                 for (int i = 2; i < itemsRaw.length; i++) {
                     String item = itemsRaw[i];

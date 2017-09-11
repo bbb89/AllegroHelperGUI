@@ -26,7 +26,7 @@ public class SearchedItemList implements Serializable {
         while (i.hasNext()) {
             TagMap.getTagMap().put(i.next().toUpperCase(), item);
         }
-        System.out.println(TagMap.getTagMap());
+//        System.out.println(TagMap.getTagMap());
 
         return result;
     }
@@ -39,7 +39,7 @@ public class SearchedItemList implements Serializable {
         List<String> tagsToRemove = item.getTags();
         boolean result = searchedItems.remove(item);
         tagsToRemove.forEach( tag -> TagMap.removeTag(tag) );
-        System.out.println(TagMap.getTagMap());
+//        System.out.println(TagMap.getTagMap());
 
 
 //        ListIterator<String> i = item.getTags().listIterator();

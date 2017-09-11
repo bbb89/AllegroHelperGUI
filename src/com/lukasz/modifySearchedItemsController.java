@@ -67,6 +67,8 @@ public class modifySearchedItemsController {
         });
 
 
+
+
         refreshList();
     }
 
@@ -86,7 +88,7 @@ public class modifySearchedItemsController {
             notValid = true;
         }
         if (price.isEmpty()) {
-            sb.append("Cena nie może być pusty.\n");
+            sb.append("Cena nie może być pusta.\n");
             notValid = true;
         }
         if (tags.isEmpty()) {

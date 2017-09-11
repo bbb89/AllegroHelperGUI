@@ -1,5 +1,6 @@
 package com.lukasz;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -53,7 +54,7 @@ public class Controller {
         categoryList = currentData.getCategoryList();
         searchedItemList = currentData.getSearchedItemList();
         progressBar.setProgress(0);
-        System.out.println(TagMap.getTagMap());
+//        System.out.println(TagMap.getTagMap());
 
         refreshCategories();
         refreshFoundItemsList();
@@ -89,7 +90,6 @@ public class Controller {
         openInBrowserCheckbox.setSelected(true);
         openInBrowserCheckbox.selectedProperty().addListener( (observable, ch1, ch2) -> {
             Notification.setOpenInBrowser(ch2);
-            System.out.println(ch2);
         });
 
 
@@ -154,21 +154,28 @@ public class Controller {
         if (running) {
             searchThread = new Thread( () -> {
 
-                while(true) {
-                    System.out.println("Start");
-                    ListIterator<Category> i = categoryList.getCategories().listIterator();
-                    while (i.hasNext()) {
-                        Category currentCategory = i.next();
-                        Search.doSearch(currentCategory);
-                        refreshFoundItemsList();
+                try {
+                    while(true) {
+                        System.out.println("Start");
+                        ListIterator<Category> i = categoryList.getCategories().listIterator();
+                        while (i.hasNext()) {
+                            Category currentCategory = i.next();
+                            Search.doSearch(currentCategory);
+                            Platform.runLater( () -> refreshFoundItemsList());
 //                    System.out.println(test.getPastPrices());
-                    }
+                        }
 
-                    try {
-                        Thread.sleep(10000);
-                    }catch (InterruptedException e) {
-                        e.printStackTrace();
+                        try {
+                            Thread.sleep(10000);
+                        }catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
                     }
+                }catch (Exception e) {
+                    e.printStackTrace();
+                    runSearchButton.setSelected(false);
+                    progressBar.setProgress(0);
+                    running = false;
                 }
 
             });
