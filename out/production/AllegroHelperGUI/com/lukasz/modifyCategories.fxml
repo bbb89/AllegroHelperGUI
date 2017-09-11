@@ -1,0 +1,78 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<GridPane fx:controller="com.lukasz.modifyCategoriesController" xmlns:fx="http://javafx.com/fxml">
+    <padding>
+        <Insets topRightBottomLeft="10"/>
+    </padding>
+    <Label text="Dodaj nową kategorię:" GridPane.rowIndex="0">
+        <GridPane.margin>
+            <Insets bottom="10"/>
+        </GridPane.margin>
+    </Label>
+    <TextField fx:id="nameInput" GridPane.rowIndex="1" promptText="Nazwa kategorii">
+        <GridPane.margin>
+            <Insets bottom="10"/>
+        </GridPane.margin>
+    </TextField>
+    <TextArea fx:id="urlInput" GridPane.rowIndex="2" wrapText="true" minHeight="50" promptText="Adres url">
+        <GridPane.margin>
+            <Insets bottom="10"/>
+        </GridPane.margin>
+    </TextArea>
+    <ListView fx:id="categories" GridPane.rowIndex="3">
+        <GridPane.margin>
+            <Insets bottom="10"/>
+        </GridPane.margin>
+    </ListView>
+
+    <Button fx:id="addButton" onAction="#addCategory" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+        <GridPane.margin>
+            <Insets bottom="10" left="10"/>
+        </GridPane.margin>
+        <tooltip>
+            <Tooltip text="Dodaj kategorię." />
+        </tooltip>
+        <graphic>
+            <ImageView>
+                <Image url="@/toolbarButtonGraphics/general/New16.gif"/>
+            </ImageView>
+        </graphic>
+    </Button>
+
+    <Button fx:id="deleteButton" onAction="#deleteCategories" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.valignment="TOP">
+        <GridPane.margin>
+            <Insets bottom="10" left="10"/>
+        </GridPane.margin>
+        <tooltip>
+            <Tooltip text="Usuń kategorię." />
+        </tooltip>
+        <graphic>
+            <ImageView>
+                <Image url="@/toolbarButtonGraphics/general/Delete16.gif"/>
+            </ImageView>
+        </graphic>
+    </Button>
+
+    <Button text="OK" fx:id="okButton" onAction="#saveChanges" GridPane.columnIndex="0" GridPane.rowIndex="4" GridPane.columnSpan="2" GridPane.halignment="CENTER" minWidth="50" minHeight="30">
+        <GridPane.margin>
+            <Insets bottom="10"/>
+        </GridPane.margin>
+        <tooltip>
+            <Tooltip text="Potwierdź zmiany." />
+        </tooltip>
+    </Button>
+
+</GridPane>
+
+
+        <!--<GridPane fx:controller="Controller"-->
+        <!--xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">-->
+        <!--</GridPane>-->

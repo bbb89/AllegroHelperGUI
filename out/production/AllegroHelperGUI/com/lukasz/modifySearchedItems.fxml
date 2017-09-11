@@ -1,0 +1,114 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ListView?>
+<GridPane fx:controller="com.lukasz.modifySearchedItemsController" xmlns:fx="http://javafx.com/fxml">
+    <padding>
+        <Insets topRightBottomLeft="10"/>
+    </padding>
+    <Label text="Dodaj nowy przedmiot do listy przedmiotów:" GridPane.rowIndex="0" GridPane.columnIndex = "2">
+        <GridPane.margin>
+            <Insets bottom="10"/>
+        </GridPane.margin>
+    </Label>
+    <ComboBox fx:id="categories" GridPane.rowIndex="1" GridPane.columnIndex="2" minWidth="300" promptText="Kategoria">
+        <GridPane.margin>
+            <Insets bottom="10"/>
+        </GridPane.margin>
+    </ComboBox>
+    <TextField fx:id="nameInput" GridPane.rowIndex="2" GridPane.columnIndex="2" promptText="Nazwa przedmiotu">
+        <GridPane.margin>
+            <Insets bottom="10"/>
+        </GridPane.margin>
+    </TextField>
+    <TextField fx:id="priceInput" GridPane.rowIndex="3" GridPane.columnIndex="2" promptText="Szukana cena">
+        <GridPane.margin>
+            <Insets bottom="10"/>
+        </GridPane.margin>
+    </TextField>
+    <TextArea fx:id="tagsInput" GridPane.rowIndex="4" GridPane.columnIndex="2" minHeight="200" promptText="Tagi (po przecinku)" wrapText="true">
+        <GridPane.margin>
+            <Insets bottom="10"/>
+        </GridPane.margin>
+    </TextArea>
+    <Label fx:id="searchedItemLabel" text="Szczegóły znalezionego przedmiotu" GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.rowSpan="3" alignment="TOP_LEFT" minWidth="300" minHeight="85" style="-fx-border-color: darkgrey; -fx-background-color: aliceblue">
+        <GridPane.margin>
+            <Insets bottom="10"/>
+        </GridPane.margin>
+    </Label>
+
+
+    <ListView fx:id="searchedItems" GridPane.rowIndex="3" GridPane.columnIndex="0" GridPane.rowSpan="3" minWidth="300">
+        <GridPane.margin>
+            <Insets right="10"/>
+        </GridPane.margin>
+        <!--<columns>-->
+        <!--</columns>-->
+    </ListView>
+
+
+
+    <Button fx:id="addButton" onAction="#addItem" GridPane.columnIndex="2" GridPane.rowIndex="5" GridPane.valignment="TOP">
+        <GridPane.margin>
+            <Insets bottom="10" />
+        </GridPane.margin>
+        <tooltip>
+            <Tooltip text="Dodaj przedmiot" />
+        </tooltip>
+        <graphic>
+            <ImageView>
+                <Image url="@/toolbarButtonGraphics/general/New16.gif"/>
+            </ImageView>
+        </graphic>
+    </Button>
+
+    <Button fx:id="editButton" onAction="#editItem" GridPane.columnIndex="2" GridPane.rowIndex="5" GridPane.valignment="TOP">
+        <GridPane.margin>
+            <Insets bottom="10" left="40"/>
+        </GridPane.margin>
+        <tooltip>
+            <Tooltip text="Modyfikuj wybrany przedmiot." />
+        </tooltip>
+        <graphic>
+            <ImageView>
+                <Image url="@/toolbarButtonGraphics/general/Edit16.gif"/>
+            </ImageView>
+        </graphic>
+    </Button>
+
+    <Button fx:id="removeButton" onAction="#removeItem" GridPane.columnIndex="2" GridPane.rowIndex="5" GridPane.valignment="TOP">
+        <GridPane.margin>
+            <Insets bottom="10" left="80"/>
+        </GridPane.margin>
+        <tooltip>
+            <Tooltip text="Usuń przedmiot." />
+        </tooltip>
+        <graphic>
+            <ImageView>
+                <Image url="@/toolbarButtonGraphics/general/Delete16.gif"/>
+            </ImageView>
+        </graphic>
+    </Button>
+
+    <Button fx:id="okButton" onAction="#saveChanges" text="OK" GridPane.columnIndex="2" GridPane.rowIndex="5" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" minWidth="50" minHeight="30">
+        <GridPane.margin>
+            <Insets bottom="10"/>
+        </GridPane.margin>
+        <tooltip>
+            <Tooltip text="Potwierdź zmiany." />
+        </tooltip>
+    </Button>
+
+</GridPane>
+
+
+        <!--<GridPane fx:controller="Controller"-->
+        <!--xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">-->
+        <!--</GridPane>-->
