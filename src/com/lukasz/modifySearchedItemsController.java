@@ -120,6 +120,15 @@ public class modifySearchedItemsController {
     }
 
     public void editItem() {
+        categories.valueProperty().setValue(selectedSearchedItem.getCategory());
+        nameInput.setText(selectedSearchedItem.getName());
+        String price = String.valueOf(selectedSearchedItem.getSearchedPrice());
+        priceInput.setText(price.substring(0, price.indexOf(".")));
+        String tags = selectedSearchedItem.getTags().toString();
+        tags = tags.substring(1,tags.length() - 1);
+        tagsInput.setText(tags);
+        searchedItemList.removeItem(selectedSearchedItem);
+        refreshList();
 
     }
 
