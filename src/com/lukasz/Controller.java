@@ -153,10 +153,10 @@ public class Controller {
         running = !running;
         if (running) {
             searchThread = new Thread( () -> {
-
+                System.out.println("Start");
                 try {
                     while(true) {
-                        System.out.println("Start");
+
                         ListIterator<Category> i = categoryList.getCategories().listIterator();
                         while (i.hasNext()) {
                             Category currentCategory = i.next();
