@@ -47,29 +47,6 @@ public class Search {
             Item item = i.next();
             Notification.notify(item.getUrl());
         }
-
-
-//        Removes items that are no longer on Allegro's newest items.
-        List<Item> itemsToRemove = new ArrayList<>();
-        List<Item> pastItemsByCurrentCategory = ItemsHistory.getPastItems()
-                .stream()
-                .filter( currentItem -> currentItem.getCategory() == category )
-                .collect(Collectors.toList());
-        i = pastItemsByCurrentCategory.listIterator();
-
-        while (i.hasNext()) {
-            Item pastItem = i.next();
-            List<Item> itemsByCurrentCategory = itemList.getItemList()
-                    .stream()
-                    .filter( currentItem -> currentItem.getCategory() == category )
-                    .collect(Collectors.toList());
-
-            if (!itemsByCurrentCategory.contains(pastItem)) {
-                itemsToRemove.add(pastItem);
-            }
-        }
-        ItemsHistory.getPastItems().removeAll(itemsToRemove);
-///////////////////////////////////////////////////////////////
     }
 
 }
