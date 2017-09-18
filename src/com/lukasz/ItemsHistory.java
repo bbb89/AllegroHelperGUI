@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ItemsHistory {
-    private final static int MAX_HISTORY_CAPACITY = 200;
+    private final static int MAX_HISTORY_CAPACITY = 5;
     private static List<Item> pastItems = new ArrayList<>();
 
     public static List<Item> getPastItems() {
