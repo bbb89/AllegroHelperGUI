@@ -60,6 +60,7 @@ public class Notification {
 
     public static void openWebpage(String urlString) {
         try {
+            urlString = ItemsParser.fixURL(urlString);
             URL url = new URL(urlString);
             openWebpage(url.toURI());
         } catch (IOException e) {

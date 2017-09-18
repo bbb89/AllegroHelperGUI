@@ -6,6 +6,7 @@ import org.jsoup.nodes.Document;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,6 +51,7 @@ public class ItemsParser {
 
                 for (int i = 2; i < itemsRaw.length; i++) {
                     String item = itemsRaw[i];
+
                     if (item.contains("\"title\":\"sponsorowane\"")) break;
 
 
@@ -61,6 +63,8 @@ public class ItemsParser {
 
                     itemPrice = item.substring(item.indexOf(PRICE_START) + PRICE_START.length(), item.indexOf(PRICE_END));
                     itemURL = item.substring((item.indexOf(URL_START) + URL_START.length()), item.indexOf(URL_END));
+                    itemURL = fixURL(itemURL);
+
 
                     try {
                         itemUsed = item.substring(item.indexOf(USED_START) + USED_START.length(), item.indexOf(USED_END));
@@ -92,5 +96,12 @@ public class ItemsParser {
         }
 
         return true;
+    }
+
+    public static String fixURL(String url) {
+        if(url.contains("\\u002F")) {
+            url = url.replaceAll("\\\\u002F", "/");
+        }
+        return url;
     }
 }
