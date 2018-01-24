@@ -1,4 +1,8 @@
 # AllegroHelperGUI
+## (aplikacja nie działa - Allegro coś pozmieniało)
+## (możliwe, że zrobię ją od nowa w Springu)
+## (i tak była bardzo nieczytelna i słabo zrobiona)
+
 Aplikacja pomocna przy szukaniu okazji na Allegro.pl. Przeszukuje nowowstawione przedmioty w kategoriach lub likach wyszukiwania, które poda użytkownik i otwiera przeglądarkę, gdy znajdzie szukany przedmiot.</p>
 W projekcie wykorzystałem m.in:
 
